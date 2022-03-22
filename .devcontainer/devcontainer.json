@@ -46,6 +46,7 @@
 	"features": {
 		"docker-in-docker": "latest",
 		"terraform": "latest",
+		"kubectl-helm-minikube": "latest",
 		"git": "latest",
 		"github-cli": "latest",
 		"aws-cli": "latest"
