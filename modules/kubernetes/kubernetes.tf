@@ -68,3 +68,10 @@ resource "helm_release" "argocd" {
     chart     = "argo-cd"
     namespace = "argocd"
 }
+
+resource "helm_release" "calico" {
+    name      = "calico"
+    repository = "https://docs.projectcalico.org/charts"
+    chart     = "tigera-operator"
+    namespace = "argocd"
+}
