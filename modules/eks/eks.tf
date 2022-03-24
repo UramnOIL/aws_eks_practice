@@ -12,14 +12,14 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     disk_size      = 50
-    instance_types = ["t2.nano"]
+    instance_types = ["t2.small"]
   }
 
   eks_managed_node_groups = {
     green = {
       min_size     = 1
-      max_size     = 2
-      desired_size = 1
+      max_size     = 4
+      desired_size = 2
 
       vpc_security_group_ids = [aws_security_group.additional.id]
     }
@@ -31,8 +31,8 @@ resource "aws_security_group" "additional" {
   vpc_id      = var.vpc_id
 
   ingress {
-    from_port = 22
-    to_port   = 22
+    from_port = 80
+    to_port   = 80
     protocol  = "tcp"
     cidr_blocks = [
       "10.0.0.0/8",
