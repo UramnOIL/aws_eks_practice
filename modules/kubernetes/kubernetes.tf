@@ -68,24 +68,3 @@ resource "helm_release" "argocd" {
     chart     = "argo-cd"
     namespace = "argocd"
 }
-
-# data "http" "argocd_installer_response" {
-#   url = "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
-# }
-
-# data "kubectl_file_documents" "argocd" {
-#   depends_on = [
-#     data.http.argocd_installer_response
-#   ]
-#   content = data.http.argocd_installer_response.body
-# }
-
-# # resource "kubectl_manifest" "argocd" {
-# #   depends_on = [
-# #     kubernetes_namespace.namespace,
-# #     data.kubectl_file_documents.argocd
-# #   ]
-# #   count              = length(data.kubectl_file_documents.argocd.documents)
-# #   yaml_body          = element(data.kubectl_file_documents.argocd.documents, count.index)
-# #   override_namespace = "argocd"
-# # }
