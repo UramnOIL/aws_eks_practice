@@ -12,7 +12,7 @@ module "eks" {
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     disk_size      = 50
-    instance_types = ["t2.nano"]
+    instance_types = ["t2.small"]
   }
 
   eks_managed_node_groups = {
