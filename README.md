@@ -27,6 +27,9 @@ Password: `$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpat
 
 - https://github.com/UramnOIL/kubernetes_practice
 
+![guestbook](/images//guestbook-ui.png)
+
+
 ## 課題
 
 ### 適切なインスタンスタイプとmin/max/desiredサイズがわからない
@@ -42,4 +45,4 @@ ArgoCDでデプロイされるPodの数が6個と多いので、t2.micro x2だ�
 
 #### VPC
 
-AZやサブネットが用意されているが、KubernetesのNodeやPodの関係がよくわからない。Node間通信はどうすればいいのかわからない。
+AZやサブネットが用意されているが、KubernetesのNodeやPodの関係がよくわからない。
