@@ -30,6 +30,30 @@ Password: `$ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpat
 ![guestbook](/images//guestbook-ui.png)
 
 
+## modules
+
+Moduleを管理するディレクトリ。
+わざわざModuleにまとめるほどの抽象度を設ける必要はないが、環境別で設定を変えたいときのために用意した。
+
+### eks
+
+AWS EKSの構築。
+
+[](/modules/kes/README.md)
+
+### vpc
+
+AWS VPCの構築。
+
+[](/modules/vpc/README.md)
+
+### kubernetes
+
+Kubernetes関連の設定。
+Helmのデプロイも併せて行う。
+
+[](/modules/kubernetes/README.md)
+
 ## 課題
 
 ### 適切なインスタンスタイプとmin/max/desiredサイズがわからない
