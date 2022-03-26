@@ -5,6 +5,13 @@ terraform {
       version = "4.6.0"
     }
   }
+
+  backend "s3" {
+    bucket = "aep-practice-tfstate"
+    region = "ap-northeast-1"
+    key = "terraform.tfstate"
+    encrypt = true
+  }
 }
 
 locals {
