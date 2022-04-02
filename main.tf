@@ -41,3 +41,7 @@ module "kubernetes" {
   source     = "./modules/kubernetes"
   cluster_id = module.eks.cluster_id
 }
+
+module "ecr" {
+  source = "./modules/ecr"
+}

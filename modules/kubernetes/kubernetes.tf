@@ -50,12 +50,6 @@ provider "helm" {
   }
 }
 
-resource "kubernetes_namespace" "argocd" {
-  metadata {
-    name = "argocd"
-  }
-}
-
 resource "kubernetes_namespace" "kubernetes_practice" {
   metadata {
     name = "kubernetes-practice"
@@ -63,15 +57,28 @@ resource "kubernetes_namespace" "kubernetes_practice" {
 }
 
 resource "helm_release" "argocd" {
-    name      = "argocd"
-    repository = "https://argoproj.github.io/argo-helm"
-    chart     = "argo-cd"
-    namespace = "argocd"
+  name       = "argocd"
+  repository = "https://argoproj.github.io/argo-helm"
+  chart      = "argo-cd"
+  namespace  = "argocd"
+
+  create_namespace = true
+
+  set {
+    name  = "global.image.tag"
+    value = "latest"
+  }
+
+  set {
+    name = "applicationSet.enabled"
+    value = false
+  }
 }
 
 resource "helm_release" "calico" {
-    name      = "calico"
-    repository = "https://docs.projectcalico.org/charts"
-    chart     = "tigera-operator"
-    namespace = "argocd"
+  name       = "calico"
+  repository = "https://docs.projectcalico.org/charts"
+  chart      = "tigera-operator"
+  namespace  = "calico-system"
+  create_namespace = true
 }

@@ -10,9 +10,9 @@ module "eks" {
   subnet_ids = var.subnet_ids
 
   eks_managed_node_group_defaults = {
-    ami_type       = "AL2_x86_64"
+    ami_type       = "BOTTLEROCKET_ARM_64"
     disk_size      = 50
-    instance_types = ["t2.small"]
+    instance_types = ["t4g.small"]
   }
 
   eks_managed_node_groups = {
